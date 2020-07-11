@@ -4,7 +4,8 @@ const NOT_FOUND_URL = "https://d3portillo.me/404"
 const LAYOUT = "https://d3portillo.me/layout"
 exports.handler = (event, context, callback) => {
   const slug = event.path.replace("/notes/", "")
-  const voidData = () => {
+  const voidData = (err = "none") => {
+    console.log({ err })
     callback(null, {
       statusCode: 302,
       headers: {
@@ -16,7 +17,7 @@ exports.handler = (event, context, callback) => {
   fetch(url)
     .then((r) => {
       if (r.ok) {
-        r.text().then((content) => {
+        return r.text().then((content) => {
           const html = marked(content)
           fetch(LAYOUT)
             .then((r) => r.text())
@@ -30,7 +31,8 @@ exports.handler = (event, context, callback) => {
               })
             })
         })
-      } else voidData()
+      }
+      voidData()
     })
     .catch(voidData)
 }
