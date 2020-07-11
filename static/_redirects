@@ -1,1 +1,1 @@
-/notes/:note /.netlify/functions/note 200!
+/notes/* /.netlify/functions/ 200!

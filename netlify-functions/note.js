@@ -17,12 +17,11 @@ exports.handler = (event, context, callback) => {
     .then((r) => {
       if (r.ok) {
         return r.text().then((content) => {
-          const html = marked(content)
+          const noteHTML = marked(content)
           fetch(LAYOUT)
             .then((r) => r.text())
             .then((template) => {
-              const body = template.replace("[CONTENT]", html)
-              console.log({ body })
+              const body = template.replace("[CONTENT]", noteHTML)
               callback(null, {
                 statusCode: 200,
                 headers: {
