@@ -1,7 +1,7 @@
 const marked = require("marked")
 const fetch = require("node-fetch")
 const NOT_FOUND_URL = "https://d3portillo.me/404"
-const LAYOUT = "/layout"
+const LAYOUT = "https://d3portillo.me/layout"
 exports.handler = (event, context, callback) => {
   const slug = event.path.replace("/notes/", "")
   const voidData = () => {
@@ -27,6 +27,7 @@ exports.handler = (event, context, callback) => {
                 statusCode: 200,
                 headers: {
                   "Content-type": "text/html",
+                  "Access-Control-Allow-Origin": "*",
                 },
                 body,
               })
