@@ -1,5 +1,6 @@
 const marked = require("marked")
 const NOT_FOUND_URL = `https://d3portillo.me/404`
+const fetch = require("node-fetch")
 exports.handler = (event, context, callback) => {
   const slug = event.path.replace("/notes/")
   const voidData = () => {

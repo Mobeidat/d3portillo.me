@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "marked": "^1.1.0",
+    "node-fetch": "^2.6.0",
     "spotify-web-api-node": "^4.0.0"
   },
   "devDependencies": {
