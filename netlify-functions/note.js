@@ -13,9 +13,7 @@ exports.handler = (event, context, callback) => {
     })
   }
   const url = `https://raw.githubusercontent.com/wiki/D3Portillo/d3portillo.me/${slug}.md`
-  fetch(url, {
-    method: "HEAD",
-  })
+  fetch(url)
     .then((r) => {
       if (r.ok) {
         r.text().then((content) => {

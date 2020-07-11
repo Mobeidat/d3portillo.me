@@ -4,7 +4,7 @@ const dark = { full: "black" }
   dark[amount.split(".")[1]] = `rgba(0,0,0,${amount})`
 })
 module.exports = {
-  purge: ["./pages/**/*.vue", "./pages/index.vue"],
+  purge: ["./pages/**/*.vue", "./pages/index.vue", "./layouts/404.vue"],
   theme: {
     fontFamily: {
       poppins: ["'Poppins', sans-serif"],
