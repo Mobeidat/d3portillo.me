@@ -1,7 +1,7 @@
 const marked = require("marked")
 const fetch = require("node-fetch")
 const NOT_FOUND_URL = "https://d3portillo.me/404"
-const LAYOUT = "https://d3portillo.me/layout/?q"
+const LAYOUT = "/layout"
 exports.handler = (event, context, callback) => {
   const slug = event.path.replace("/notes/", "")
   const voidData = () => {
@@ -21,12 +21,14 @@ exports.handler = (event, context, callback) => {
           fetch(LAYOUT)
             .then((r) => r.text())
             .then((template) => {
+              const body = template.replace("[CONTENT]", html)
+              console.log({ body })
               callback(null, {
                 statusCode: 200,
                 headers: {
                   "Content-type": "text/html",
                 },
-                body: template.replace("[CONTENT]", html),
+                body,
               })
             })
         })
