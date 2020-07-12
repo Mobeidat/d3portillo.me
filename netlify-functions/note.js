@@ -1,5 +1,6 @@
 const marked = require("marked")
 const fetch = require("node-fetch")
+const cheerio = require("cheerio")
 const NOT_FOUND_URL = "https://d3portillo.me/404"
 const LAYOUT = "https://d3portillo.me/layout.html"
 exports.handler = (event, context, callback) => {
@@ -21,7 +22,20 @@ exports.handler = (event, context, callback) => {
           fetch(LAYOUT)
             .then((r) => r.text())
             .then((template) => {
-              const body = template.replace("[CONTENT]", noteHTML)
+              const $ = cheerio.load(template.replace("[CONTENT]", noteHTML))
+              $("script[src]").remove()
+              const h1 = $("h1")
+                .first()
+                .html()
+              const p = $("p")
+                .first()
+                .text()
+              $("head").append(`<title>Note | ${h1}</title>`)
+              $("head").append(`<meta name="description" content="${p}">`)
+              $("head").append(`<meta name="author" content="D3Portillo">`)
+
+              const body = $.html()
+              console.log({ body, h1 })
               callback(null, {
                 statusCode: 200,
                 headers: {
