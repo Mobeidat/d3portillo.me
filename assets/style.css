@@ -1,5 +1,3 @@
-pre{margin:1rem 0;border:solid 1px rgba(0,0,0,.1);background:transparent}pre code{display:block;overflow-x:auto;padding:0.5em;background:#ffffff;}pre code,.hljs-subst{color:#434f54;}.hljs-keyword,.hljs-attribute,.hljs-selector-tag,.hljs-doctag,.hljs-name{color:#00979d;}.hljs-built_in,.hljs-literal,.hljs-bullet,.hljs-code,.hljs-addition{color:#d35400;}.hljs-regexp,.hljs-symbol,.hljs-variable,.hljs-template-variable,.hljs-link,.hljs-selector-attr,.hljs-selector-pseudo{color:#00979d;}.hljs-type,.hljs-string,.hljs-selector-id,.hljs-selector-class,.hljs-quote,.hljs-template-tag,.hljs-deletion{color:#005c5f;}.hljs-title,.hljs-section{color:#880000;font-weight:bold;}.hljs-comment{color:rgba(149,165,166,0.8);}.hljs-meta-keyword{color:#728e00;}.hljs-meta{color:#434f54;}.hljs-emphasis{font-style:italic;}.hljs-strong{font-weight:bold;}.hljs-function{color:#728e00;}.hljs-number{color:#8a7b52;}
-
 /* Including tailwind */
 @tailwind base;
 @tailwind utilities;
@@ -21,7 +19,6 @@ pre{margin:1rem 0;border:solid 1px rgba(0,0,0,.1);background:transparent}pre cod
 body * {
   position: relative;
 }
-
 em {
   @apply border-b-2 border-yellow not-italic font-bold;
 }
@@ -106,6 +103,150 @@ textarea:invalid {
     border-bottom: solid 2px #ff5f5f !important;
   }
 }
+
+body,
+html {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* DNotes */
+.note-container {
+  /* Code highlight */
+  p code {
+    @apply px-1 bg-dark-05 italic font-sans;
+  }
+  pre {
+    margin: 1rem 0;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    background: transparent;
+  }
+  pre code {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #ffffff;
+  }
+  pre code,
+  .hljs-subst {
+    color: #434f54;
+  }
+  .hljs-keyword,
+  .hljs-attribute,
+  .hljs-selector-tag,
+  .hljs-doctag,
+  .hljs-name {
+    color: #00979d;
+  }
+  .hljs-built_in,
+  .hljs-literal,
+  .hljs-bullet,
+  .hljs-code,
+  .hljs-addition {
+    color: #d35400;
+  }
+  .hljs-regexp,
+  .hljs-symbol,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-link,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo {
+    color: #00979d;
+  }
+  .hljs-type,
+  .hljs-string,
+  .hljs-selector-id,
+  .hljs-selector-class,
+  .hljs-quote,
+  .hljs-template-tag,
+  .hljs-deletion {
+    color: #005c5f;
+  }
+  .hljs-title,
+  .hljs-section {
+    color: #880000;
+    font-weight: bold;
+  }
+  .hljs-comment {
+    color: rgba(149, 165, 166, 0.8);
+  }
+  .hljs-meta-keyword {
+    color: #728e00;
+  }
+  .hljs-meta {
+    color: #434f54;
+  }
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  .hljs-strong {
+    font-weight: bold;
+  }
+  .hljs-function {
+    color: #728e00;
+  }
+  .hljs-number {
+    color: #8a7b52;
+  }
+  /* Note Styles */
+  h1 {
+    @apply text-4xl font-bold mb-3;
+  }
+  h2 {
+    @apply text-3xl font-bold mb-2;
+  }
+  h3 {
+    @apply text-2xl font-bold mb-1;
+  }
+  h4 {
+    @apply text-xl font-bold mb-1;
+  }
+  p {
+    @apply my-2 text-lg;
+  }
+  table {
+    @apply my-3;
+  }
+  table th,
+  table td {
+    @apply border border-dark-15 py-2 px-4;
+  }
+  em {
+    @apply italic border-none font-normal;
+  }
+
+  ul,
+  ol {
+    @apply -mt-1 mb-4;
+  }
+  ul li {
+    list-style: inside;
+  }
+  ol li {
+    list-style: decimal inside;
+  }
+  blockquote {
+    @apply border-l-8 border-yellow py-4 mb-8 mt-12;
+    background: rgba(0, 0, 0, 0.02);
+    p {
+      @apply ml-8 text-2xl font-sans mr-6;
+    }
+    p::before {
+      content: "“";
+      font-size: 22rem;
+      transform: translate(-0.5rem, -42%) rotate(-45deg);
+      @apply absolute top-0 left-0;
+      opacity: 0.08;
+    }
+  }
+  iframe {
+    min-height: 22rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.05);
+  }
+}
+
 .note:hover {
   animation: glitch 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   @apply border-dark-full;
@@ -120,38 +261,4 @@ textarea:invalid {
   100% {
     transform: skew(-5deg);
   }
-}
-body,
-html {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-/* DNotes */
-h1 {
-  @apply text-4xl font-bold mb-3;
-}
-h2 {
-  @apply text-3xl font-bold mb-2;
-}
-h3 {
-  @apply text-2xl font-bold mb-1;
-}
-h4 {
-  @apply text-xl font-bold mb-1;
-}
-p {
-  @apply my-2 text-lg;
-}
-table,
-ul,
-ol {
-  @apply my-3;
-}
-table th,
-table td {
-  @apply border border-dark-15 py-2 px-4;
-}
-code{
-  @apply px-1 bg-dark-05
 }
