@@ -1,8 +1,11 @@
 const marked = require("marked")
 const fetch = require("node-fetch")
 const cheerio = require("cheerio")
+const hljs = require("highlight.js")
+
 const NOT_FOUND_URL = "https://d3portillo.me/404"
 const LAYOUT = "https://d3portillo.me/layout.html"
+
 exports.handler = (event, context, callback) => {
   const slug = event.path.replace("/notes/", "")
   const voidData = () => {
@@ -30,11 +33,16 @@ exports.handler = (event, context, callback) => {
               const p = $("p")
                 .first()
                 .text()
-              $("head").append(`<title>Note | ${h1}</title>`)
-              $("head").append(`<meta name="description" content="${p}">`)
-              $("head").append(`<meta name="author" content="D3Portillo">`)
+              $("head")
+                .append(`<title>Note | ${h1}</title>`)
+                .append(`<meta name="description" content="${p}">`)
+                .append(`<meta name="author" content="D3Portillo">`)
+              $("pre code").each((_, e) => {
+                const $e = $(e)
+                const highlightedCode = hljs.highlightAuto($e.text()).value
+                $e.html(highlightedCode)
+              })
               const body = $.html()
-              console.log({ body, h1 })
               callback(null, {
                 statusCode: 200,
                 headers: {
