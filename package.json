@@ -2,7 +2,8 @@
   "license": "MIT",
   "scripts": {
     "start": "saber",
-    "build": "saber build"
+    "build": "saber build",
+    "start:n": "netlify dev"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",

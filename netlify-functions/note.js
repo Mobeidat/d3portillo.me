@@ -33,7 +33,6 @@ exports.handler = (event, context, callback) => {
               $("head").append(`<title>Note | ${h1}</title>`)
               $("head").append(`<meta name="description" content="${p}">`)
               $("head").append(`<meta name="author" content="D3Portillo">`)
-
               const body = $.html()
               console.log({ body, h1 })
               callback(null, {

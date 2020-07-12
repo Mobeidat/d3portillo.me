@@ -8,6 +8,9 @@
       />
     </div>
     <div class="px-6 max-w-4xl mt-6 min-h-screen flex flex-col">
+      <div :hidden="entries.length > 0">
+        Fetching notes...
+      </div>
       <a
         :title="`Click to continue reading: ${item.title}`"
         class="border-b border-dark-30 block pb-4 note"
