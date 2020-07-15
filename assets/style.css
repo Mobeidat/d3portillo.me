@@ -3,11 +3,6 @@
 @tailwind utilities;
 @tailwind components;
 
-/* Cursor only things */
-.previews {
-  cursor: url("/pointer.png"), auto;
-}
-
 /*
   Font imports
 */
@@ -103,13 +98,33 @@ textarea:invalid {
     border-bottom: solid 2px #ff5f5f !important;
   }
 }
-
 body,
 html {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
+.homepage {
+  h1 {
+    @apply text-7xl font-monoton mb-4;
+  }
+  h2 {
+    @apply text-4xl font-black;
+  }
+  section {
+    @apply p-4;
+  }
+  @screen lg {
+    section {
+      @apply p-12;
+    }
+    h1 {
+      @apply text-xxl;
+    }
+    h2 {
+      @apply text-7xl;
+    }
+  }
+}
 /* DNotes */
 .note-container {
   /* Code highlight */
@@ -191,16 +206,16 @@ html {
   }
   /* Note Styles */
   h1 {
-    @apply text-4xl font-bold mb-3;
+    @apply text-4xl font-bold mb-3 leading-tight;
   }
   h2 {
-    @apply text-3xl font-bold mb-2;
+    @apply text-3xl font-bold mb-2 leading-tight;
   }
   h3 {
-    @apply text-2xl font-bold mb-1;
+    @apply text-2xl font-bold mb-1 leading-tight;
   }
   h4 {
-    @apply text-xl font-bold mb-1;
+    @apply text-xl font-bold mb-1 leading-tight;
   }
   p {
     @apply my-2 text-lg;
@@ -215,7 +230,6 @@ html {
   em {
     @apply italic border-none font-normal;
   }
-
   ul,
   ol {
     @apply -mt-1 mb-4;

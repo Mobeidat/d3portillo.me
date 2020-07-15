@@ -4,7 +4,7 @@
     <a title="Go to notes" no-link href="/notes">
       <img src="/d.png" alt="D/Note" class="h-24 shadow inline" />
     </a>
-    <div class="mt-6 note-container ">
+    <div class="mt-6 note-container">
       [CONTENT]
     </div>
     <notes-footer />

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="min-h-screen flex flex-col font-poppins z-10  mb-40">
+  <div class="homepage">
+    <div class="min-h-screen flex flex-col font-poppins z-10 mb-48">
       <div class="min-h-screen flex flex-col">
         <div class="inset-0 absolute bg-white">
           <img
@@ -24,10 +24,10 @@
             class="absolute h-full top-0 left-0 mt-2 ml-3 tob opacity-0"
           />
           <div
-            @click="goto('showcase')"
+            @click="goto('stuff')"
             class="m-1 px-3 py-2 rounded hover:bg-dark-05 hover:shadow cursor-pointer"
           >
-            Showcase
+            Projects
           </div>
           <div
             @click="goto('bio')"
@@ -37,7 +37,7 @@
           </div>
           <div
             @click="goto('social')"
-            class="m-1 px-3 py-2 rounded hover:bg-dark-05  hover:shadow cursor-pointer"
+            class="m-1 px-3 py-2 rounded hover:bg-dark-05 hover:shadow cursor-pointer"
           >
             Social
           </div>
@@ -57,7 +57,7 @@
             alt="it's me"
           />
           <div
-            style="text-shadow: -1px -1px white"
+            style="text-shadow: -1px -1px white;"
             class="flex-grow text-lg sm:text-2xl xl:text-3xl max-w-xl text-center mt-40 xl:mt-0 p-2 xl:p-12 mb-8 quote"
           >
             <img src="../assets/img/quote-l.svg" alt="'" side="l" />
@@ -66,18 +66,15 @@
           </div>
         </main>
       </div>
-      <main class="p-8 pb-0 bg-white cursor-default mb-8">
-        <section id="showcase" class="px-4 xl:px-12 py-12 p-12 pb-0 mb-10">
-          <div
-            style="line-height: .72"
-            class="text-7xl xl:text-xxl font-monoton break-all mb-20"
-          >
-            SHOWCASE
-          </div>
+      <main class="p-8 pb-0 bg-white cursor-default">
+        <section id="stuff" class="pb-0 mb-6">
+          <h1>
+            PROYECTS
+          </h1>
           <div class="flex flex-wrap">
             <div
               v-for="item in siteData.showcase"
-              class="w-full xl:w-1/3 p-2 max-w-lg"
+              class="w-full lg:w-1/3 p-2 max-w-lg"
               :key="item.title"
             >
               <div class="shadow-inner h-56 flex items-end">
@@ -89,11 +86,10 @@
                 <div class="bg-dark-60 inset-0 absolute rounded"></div>
                 <div
                   @click="open(`https://${item.url}`)"
-                  class="absolute inset-0 p-8 pb-4 opacity-0 hover:opacity-100 cursor-pointer"
-                  style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.63) 61.98%, rgba(0, 0, 0, 0.6) 100%);"
+                  class="absolute inset-0 p-8 pb-4 opacity-0 hover:opacity-100 cursor-pointer bg-dark-80"
                 >
                   <div
-                    style="min-height: 2.5rem"
+                    style="min-height: 2.5rem;"
                     class="text-white uppercase text-center text-2xl font-bold leading-none mb-2"
                   >
                     {{ item.title }}
@@ -135,20 +131,23 @@
               </div>
             </div>
           </div>
+          <p class="text-dark-60 text-xs ml-2">
+            It's projects, ...but meeh!
+          </p>
         </section>
-        <section id="bio" class="px-4 xl:px-12 py-12 p-12 max-w-4xl">
-          <div class="text-7xl xl:text-xxl font-monoton">
+        <section id="bio" class="max-w-4xl">
+          <h1>
             BIO
-          </div>
+          </h1>
           <p
             v-for="piece in siteData.bio"
             v-html="piece"
             :key="piece"
             class="text-lg my-2"
           />
-          <div class="text-7xl xl:text-xxl font-monoton mt-10">
+          <h1>
             SKILLS
-          </div>
+          </h1>
           <div
             class="skillbar"
             v-for="(value, skill) in siteData.skills"
@@ -167,166 +166,145 @@
             any problem life puts on my way :)
           </p>
         </section>
-        <div class="bg-dark-30 -mx-8 px-8">
-          <section id="social" class="px-4 xl:px-12 py-12 max-w-4xl">
+        <section id="social" class="max-w-4xl">
+          <h1>
+            SOCIAL
+          </h1>
+          <div>
+            <a href="https://twitter.com/d3portillo" class="text-2xl lg:text-3xl font-bold">
+            Follow me on Twitter
+          </a>
+          <div >
+            <a href="https://github.com/d3portillo" class="text-2xl lg:text-3xl font-bold">
+            Follow my Github
+          </a>
+          </div>
+           <div class="mb-12">
+            <a href="https://linkedin.com/in/d3portillo" class="text-2xl lg:text-3xl font-bold">
+            My Linkedin
+          </a>
+          </div>
+
+          <div
+            :title="`Click to preview: ${spotify.name} / ${spotify.artists}`"
+            class="shadow-xl bg-black"
+          >
+            <h2 class="text-white italic text-right pr-4">MY MOOD</h2>
             <div
-              class="text-7xl xl:text-xxl font-monoton text-white opacity-50 mb-4"
+              @click="preview"
+              class="absolute cursor-pointer inset-0 opacity-0 hover:opacity-100 hover:bg-dark-50 z-10"
             >
-              SOCIAL
+              <i
+                class="text-white mr-3 mt-1 text-right absolute top-0 right-0"
+              >
+                TAP TO PLAY
+              </i>
             </div>
-            <div class="flex w-full flex-col items-end max-w-xs xl:max-w-full">
+            <img :src="spotify.cover" class="w-full" />
+          </div>
+          <a title="Go and play this on spotify" class="w-full" no-link :href="spotify.url">
+            <audio id="preview" :src="spotify.preview"></audio>
+            <div class="bg-black font-bold text-lg text-right py-4 px-6 text-white">
+              Play on spotify
+            </div>
+          </a>
+
+        </section>
+        <div class="mt-40 mb-24">
+          <h2 class="text-center pb-12">
+            MY STUFF
+          </h2>
+          <div
+            class="flex justify-between items-center pb-6 flex-wrap xl:flex-no-wrap"
+          >
+            <div class="w-full sm:w-1/3 flex justify-center px-1">
               <div
-                class="card bg-white rounded-t h-40 xl:h-48 xl:p-4 w-full rounded sm:shadow flex flex-col xl:flex-row"
+                @click="open('https://d3portillo.me/')"
+                class="bg-white shadow rounded cursor-pointer hover:shadow-lg"
               >
                 <img
-                  @click="preview"
-                  :title="
-                    spotify.preview
-                      ? 'Click to preview'
-                      : 'No preview available'
-                  "
-                  :src="spotify.cover"
-                  :class="[
-                    'shadow hover:shadow-outline object-cover rounded-t xl:rounded-t-none ',
-                    spotify.preview && 'previews cursor-pointer',
-                  ]"
-                  :alt="`Cover for ${spotify.name}`"
-                  style="height: 140%"
+                  src="../assets/downloadables/vitae.svg"
+                  alt="My CV"
+                  class="m-2 h-40"
                 />
-                <div
-                  class="flex flex-col flex-grow px-6 py-6 xl:py-2 bg-white xl:bg-transparent"
-                >
-                  <div
-                    class="text-xl xl:text-4xl flex leading-tight mb-1 items-end flex-grow"
-                  >
-                    {{ spotify.name }}
-                  </div>
-                  <div class="text-sm xl:text-xl text-dark-40">
-                    {{ spotify.artists }}
-                  </div>
-                  <div
-                    class="leading-none"
-                    style="font-size: 8px; opacity: .22"
-                  >
-                    You can preview the song on cover.
-                  </div>
-                  <div
-                    class="flex justify-end h-12 xl:-mr-4 mt-2 xl:-mt-1 flex-grow items-end"
-                  >
-                    <a no-link :href="spotify.url">
-                      <audio id="preview" :src="spotify.preview"></audio>
-                      <img
-                        class="h-10 xl:h-12 hover:scale rounded-sm xl:shadow hover:shadow-lg"
-                        src="../assets/img/playonspotify.svg"
-                        alt=" > "
-                      />
-                    </a>
-                  </div>
-                </div>
               </div>
-              <div
-                class="flex w-2/3 text-4xl font-black text-white mr-2 opacity-0 xl:opacity-100"
+            </div>
+            <div class="w-full sm:w-1/3 flex justify-center mt-6 px-1 sm:m-0">
+              <a
+                no-link
+                href="/cards/d3portillo.tar"
+                class="bg-white shadow rounded cursor-pointer hover:shadow-lg"
               >
-                MY MOOD
-              </div>
+                <img
+                  src="../assets/downloadables/presentation.svg"
+                  alt="Presentation card"
+                  class="m-2 h-40"
+                />
+              </a>
             </div>
-          </section>
-          <div class="bg-cyan mt-40 p-8 lg:p-12 rounded z-10">
-            <div class="text-2xl xl:text-7xl font-black text-center pb-12">
-              DOWNLOADABLES
-            </div>
-            <div
-              class="flex justify-between items-center pb-6 flex-wrap xl:flex-no-wrap"
-            >
-              <div class="w-full sm:w-1/3 flex justify-center px-1">
-                <div
-                  @click="open('https://d3portillo.me/')"
-                  class="bg-white shadow rounded cursor-pointer hover:shadow-lg"
-                >
-                  <img
-                    src="../assets/downloadables/vitae.svg"
-                    alt="My CV"
-                    class="m-2 h-40"
-                  />
-                </div>
-              </div>
-              <div class="w-full sm:w-1/3 flex justify-center mt-6 px-1 sm:m-0">
-                <a
-                  no-link
-                  href="/cards/d3portillo.tar"
-                  class="bg-white shadow rounded cursor-pointer hover:shadow-lg"
-                >
-                  <img
-                    src="../assets/downloadables/presentation.svg"
-                    alt="Presentation card"
-                    class="m-2 h-40"
-                  />
-                </a>
-              </div>
-              <div class="w-full sm:w-1/3 flex justify-center mt-6 px-1 sm:m-0">
-                <a
-                  no-link
-                  target="_blank"
-                  href="/goodies"
-                  class="bg-white shadow rounded cursor-pointer hover:shadow-lg"
-                >
-                  <img
-                    src="../assets/downloadables/freebies.svg"
-                    alt="Freebies"
-                    class="m-2 h-40"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div
-            id="contact"
-            class="bg-dark-90 flex justify-center items-center flex-col pb-20 pt-32 -mx-8 -mt-8"
-          >
-            <div class="text-2xl xl:text-7xl font-black text-white text-center">
-              LEAVE ME A MESSAGE
-            </div>
-            <section class="p-12 max-w-xl w-full">
-              <form
-                class="flex flex-col mailer"
-                method="POST"
-                name="contact"
-                netlify
+            <div class="w-full sm:w-1/3 flex justify-center mt-6 px-1 sm:m-0">
+              <a
+                no-link
+                target="_blank"
+                href="/goodies"
+                class="bg-white shadow rounded cursor-pointer hover:shadow-lg"
               >
-                <input name="form-name" value="contact" type="hidden" />
-                <input
-                  type="text"
-                  required
-                  name="name"
-                  placeholder="Your name"
-                  class="font-sans bg-dark-05 border-b-2 text-white mb-2 p-2 text-lg"
+                <img
+                  src="../assets/downloadables/freebies.svg"
+                  alt="Freebies"
+                  class="m-2 h-40"
                 />
-                <input
-                  required
-                  name="email"
-                  type="email"
-                  placeholder="Your email"
-                  class="font-sans bg-dark-05 border-b-2 text-white mb-2 p-2 text-lg"
-                />
-                <textarea
-                  required
-                  rows="3"
-                  name="message"
-                  type="text"
-                  placeholder="Hi Denny, it's Jhon, lets grab a coffee and so we can talk about a project."
-                  class="font-sans bg-dark-05 border-b-2 text-white mb-2 p-2 text-lg"
-                />
-                <button
-                  type="submit"
-                  class="mt-4 cursor-pointer bg-yellow hover:shadow-outline font-bold text-lg xl:text-2xl px-6 py-3 flex items-center justify-center"
-                >
-                  Send Message
-                </button>
-              </form>
-            </section>
+              </a>
+            </div>
           </div>
         </div>
       </main>
+      <div
+        id="contact"
+        class="bg-black flex justify-center items-center flex-col pb-20 pt-32"
+      >
+        <h2 class="text-white text-center">
+          EMAIL ME
+        </h2>
+        <div class="p-12 max-w-xl w-full">
+          <form
+            class="flex flex-col mailer"
+            method="POST"
+            name="contact"
+            netlify
+          >
+            <input name="form-name" value="contact" type="hidden" />
+            <input
+              type="text"
+              required
+              name="name"
+              placeholder="Your name"
+              class="font-sans bg-dark-05 border-b-2 text-white mb-2 p-2 text-lg"
+            />
+            <input
+              required
+              name="email"
+              type="email"
+              placeholder="Your email"
+              class="font-sans bg-dark-05 border-b-2 text-white mb-2 p-2 text-lg"
+            />
+            <textarea
+              required
+              rows="3"
+              name="message"
+              type="text"
+              placeholder="Hi Denny, it's Jhon, lets grab a coffee and so we can talk about a project."
+              class="font-sans bg-dark-05 border-b-2 text-white mb-2 p-2 text-lg"
+            />
+            <button
+              type="submit"
+              class="mt-4 cursor-pointer bg-yellow hover:shadow-outline font-bold text-lg xl:text-2xl px-6 py-3 flex items-center justify-center"
+            >
+              SEND EMAIL
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
     <footer
       class="flex items-center justify-center p-8 fixed bottom-0 left-0 w-full h-40 pt-0"
@@ -386,17 +364,15 @@ export default {
     },
   },
   mounted() {
+    const $nav = window.navigation
     window.onscroll = (e) => {
       const { scrollY = 0 } = window
-      if (scrollY < 1000) {
-        const $nav = window.navigation
-        if (scrollY > 50) {
-          $nav.classList.add("bg-white")
-          $nav.classList.add("shadow")
-        } else {
-          $nav.classList.remove("bg-white")
-          $nav.classList.remove("shadow")
-        }
+      if (scrollY > 50) {
+        $nav.classList.add("bg-white")
+        $nav.classList.add("shadow")
+      } else {
+        $nav.classList.remove("bg-white")
+        $nav.classList.remove("shadow")
       }
     }
     window.onload = () => {
