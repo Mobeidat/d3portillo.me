@@ -206,16 +206,23 @@ html {
   }
   /* Note Styles */
   h1 {
-    @apply text-4xl font-bold mb-3 leading-tight;
+    @apply text-4xl font-bold mt-10 mb-6;
   }
   h2 {
-    @apply text-3xl font-bold mb-2 leading-tight;
+    @apply text-3xl font-bold mt-8 mb-4;
   }
   h3 {
-    @apply text-2xl font-bold mb-1 leading-tight;
+    @apply text-2xl font-bold mt-6 mb-3;
   }
   h4 {
-    @apply text-xl font-bold mb-1 leading-tight;
+    @apply text-xl font-bold mt-4 mb-3;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    @apply leading-tight;
   }
   p {
     @apply my-2 text-lg;
@@ -245,13 +252,6 @@ html {
     background: rgba(0, 0, 0, 0.02);
     p {
       @apply ml-8 text-2xl font-sans mr-6;
-    }
-    p::before {
-      content: "“";
-      font-size: 22rem;
-      transform: translate(-0.5rem, -42%) rotate(-45deg);
-      @apply absolute top-0 left-0;
-      opacity: 0.08;
     }
   }
   iframe {

@@ -172,7 +172,7 @@
           </h1>
           <div>
             <a href="https://twitter.com/d3portillo" class="text-2xl lg:text-3xl font-bold">
-            Follow me on Twitter
+            Find me on Twitter
           </a>
           <div >
             <a href="https://github.com/d3portillo" class="text-2xl lg:text-3xl font-bold">

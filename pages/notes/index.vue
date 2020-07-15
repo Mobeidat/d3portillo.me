@@ -9,6 +9,15 @@
     </div>
     <div class="border-b-2" />
     <div class="px-6 max-w-5xl mx-auto mt-12 min-h-screen flex flex-col">
+      <p class="mb-6 text-xs text-dark-85">
+        👋 Estas son notas que hago y comparto con ustedes y <b>NO</b>, no es un
+        <b>Blog</b>. <br />Lo que postearé puede tener errores ortograficos.
+        Aveces puede ser contenido en inglés o español. Si no estás de acuerdo
+        con el término, disculpas.
+      </p>
+      <b class="text-4xl">
+        📓 NOTAS
+      </b>
       <div :hidden="entries.length > 0">
         Fetching notes...
       </div>
@@ -26,6 +35,7 @@
         </p>
       </a>
       <div class="flex-grow" />
+
       <notes-footer />
     </div>
   </div>
