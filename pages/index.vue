@@ -71,7 +71,7 @@
           <h1>
             PROYECTS
           </h1>
-          <div class="flex flex-wrap">
+          <div class="flex flex-wrap -mx-2">
             <div
               v-for="item in siteData.showcase"
               class="w-full lg:w-1/3 p-2 max-w-lg"
@@ -189,7 +189,7 @@
             :title="`Click to preview: ${spotify.name} / ${spotify.artists}`"
             class="shadow-xl bg-black"
           >
-            <h2 class="text-white italic text-right pr-4">MY MOOD</h2>
+            <h2 class="bg-white xl:bg-black xl:text-white italic text-right pr-4">MY MOOD</h2>
             <div
               @click="preview"
               class="absolute cursor-pointer inset-0 opacity-0 hover:opacity-100 hover:bg-dark-50 z-10"
@@ -204,7 +204,7 @@
           </div>
           <a title="Go and play this on spotify" class="w-full" no-link :href="spotify.url">
             <audio id="preview" :src="spotify.preview"></audio>
-            <div class="bg-black font-bold text-lg text-right py-4 px-6 text-white">
+            <div class="bg-black font-bold lg:text-lg text-right py-4 px-6 text-white">
               Play on spotify
             </div>
           </a>
