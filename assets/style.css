@@ -261,6 +261,10 @@ html {
   }
   img {
     cursor: pointer;
+    @apply border border-dark-05;
+  }
+  hr {
+    @apply my-10;
   }
 }
 

@@ -50,7 +50,7 @@ exports.handler = (event, context, callback) => {
                 $e.html(highlightedCode)
               })
               $("body").append(
-                `<script>window.onload = () =>  document.querySelectorAll("img").forEach((img) => img.addEventListener("click", () => window.open(img.src, "_blank")))</script>`
+                `<script>window.onload = () =>  document.querySelectorAll(".note-container img").forEach((img) => img.addEventListener("click", () => window.open(img.src, "_blank")))</script>`
               )
               const body = $.html()
               callback(null, {
