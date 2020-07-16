@@ -5,7 +5,7 @@ const hljs = require("highlight.js")
 
 const NOT_FOUND_URL = "https://d3portillo.me/404"
 const LAYOUT = "https://d3portillo.me/layout.html"
-
+const BASE_URL = "https://d3portillo.me/notes"
 exports.handler = (event, context, callback) => {
   const slug = event.path.replace("/notes/", "")
   const voidData = () => {
@@ -37,11 +37,21 @@ exports.handler = (event, context, callback) => {
                 .append(`<title>Note | ${h1}</title>`)
                 .append(`<meta name="description" content="${p}">`)
                 .append(`<meta name="author" content="D3Portillo">`)
+                .append(`<meta property="twitter:card" content="summary">
+                <meta property="twitter:site" content="@d3portillo">
+                <meta property="twitter:url" content="${BASE_URL}}/${slug}">
+                <meta property="twitter:title" content="${h1}">
+                <meta property="twitter:description" content="${p}">
+                <meta property="twitter:image" content="https://d3portillo.me/seo_note.png">
+                `)
               $("pre code").each((_, e) => {
                 const $e = $(e)
                 const highlightedCode = hljs.highlightAuto($e.text()).value
                 $e.html(highlightedCode)
               })
+              $("body").append(
+                `<script>window.onload = () =>  document.querySelectorAll("img").forEach((img) => img.addEventListener("click", () => window.open(img.src, "_blank")))</script>`
+              )
               const body = $.html()
               callback(null, {
                 statusCode: 200,
