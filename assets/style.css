@@ -255,9 +255,14 @@ html {
     }
   }
   iframe {
-    min-height: 22rem;
+    max-height: 240px;
     width: 100%;
     background: rgba(0, 0, 0, 0.05);
+  }
+  @screen xl {
+    iframe {
+      min-height: 558px;
+    }
   }
   img {
     cursor: pointer;
