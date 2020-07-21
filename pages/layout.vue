@@ -6,7 +6,6 @@
     </a>
     <div class="mt-6 note-container">
       [CONTENT]
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/0if71HOyVjY?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <notes-footer />
   </div>
