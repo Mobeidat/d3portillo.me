@@ -6,6 +6,7 @@ const hljs = require("highlight.js")
 const NOT_FOUND_URL = "https://d3portillo.me/404"
 const LAYOUT = "https://d3portillo.me/layout.html"
 const BASE_URL = "https://d3portillo.me/notes"
+
 exports.handler = (event, context, callback) => {
   const slug = event.path.replace("/notes/", "")
   const voidData = () => {
@@ -43,6 +44,7 @@ exports.handler = (event, context, callback) => {
                 <meta property="twitter:title" content="${h1}">
                 <meta property="twitter:description" content="${p}">
                 <meta property="twitter:image" content="https://d3portillo.me/seo_note.png">
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8QQX5X7WG"></script>
                 `)
               $("pre code").each((_, e) => {
                 const $e = $(e)

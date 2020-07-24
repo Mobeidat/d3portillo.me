@@ -1,36 +1,34 @@
 <template>
-  <div>
-    <div class="p-6 max-w-5xl mx-auto">
-      <img
-        class="text-7xl xl:text-xxl font-monoton select-none h-16"
-        :src="require('../../assets/img/d3notes.svg')"
-        alt="D/NOTES"
-      />
+  <div class="h-screen">
+    <div class="bg-white shadow sticky top-0 z-10">
+      <div class="p-6 max-w-5xl mx-auto sticky top-0">
+        <img
+          class="text-7xl xl:text-xxl font-monoton select-none h-10"
+          :src="require('../../assets/img/d3notes.svg')"
+          alt="D/NOTES"
+        />
+      </div>
     </div>
-    <div class="border-b-2" />
     <div class="px-6 max-w-5xl mx-auto mt-12 min-h-screen flex flex-col">
-      <p class="mb-6 text-xs text-dark-85">
+      <p class="text-xs text-dark-90 bg-dark-05 p-4 rounded mb-6">
         👋 Estas son notas que hago y comparto con ustedes y <b>NO</b>, no es un
         <b>Blog</b>. <br />Lo que postearé puede tener errores ortograficos.
         Aveces puede ser contenido en inglés o español. Si no estás de acuerdo
         con el término, disculpas.
       </p>
-      <b class="text-4xl">
-        📓 NOTAS
-      </b>
-      <div :hidden="entries.length > 0">
+      <div class="mt-4" :hidden="entries.length > 0">
         Fetching notes...
       </div>
       <a
         :title="`Click to continue reading: ${item.title}`"
-        class="border-b border-dark-30 block pb-4 note mt-4"
+        class="border-b border-dark-15 block pb-4 note mt-4"
         no-link
         :href="`https://d3portillo.me/notes/${item.slug}`"
         v-for="item in entries"
         :key="item.title"
       >
-        <h1 class="text-2xl uppercase font-bold">{{ item.title }}</h1>
-        <p>
+        <h1 class="text-2xl font-bold text-dark-85">{{ item.title }}</h1>
+        <p class="text-dark-75">
           {{ item.resume }}
         </p>
       </a>
