@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen">
     <div class="bg-white shadow sticky top-0 z-10">
-      <div class="p-6 max-w-5xl mx-auto sticky top-0">
+      <div class="p-6 max-w-5xl mx-auto">
         <img
           class="text-7xl xl:text-xxl font-monoton select-none h-10"
           :src="require('../../assets/img/d3notes.svg')"

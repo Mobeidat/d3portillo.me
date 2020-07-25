@@ -251,8 +251,8 @@ html {
     @apply border-l-8 border-yellow py-4 mb-8 mt-12;
     background: rgba(0, 0, 0, 0.02);
     p {
-      @apply ml-8 font-sans mr-6;
-      font-size: 1.42rem;
+      @apply ml-6 font-sans mr-6;
+      font-size: 1.3rem;
     }
   }
   iframe {
@@ -265,8 +265,8 @@ html {
       min-height: 558px;
     }
     blockquote p {
-      font-size: 1.3rem;
-      margin-left: 1.5rem;
+      font-size: 1.42rem;
+      margin-left: 2rem;
     }
   }
   img {

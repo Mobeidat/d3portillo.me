@@ -1,11 +1,11 @@
 <template>
   <div class="w-full">
-    <div class="mt-24 text-xs">
-      Thank you for reading, this are notes to myself, may contain grammar
-      errors, or are written in
+    <div class="mt-32 mb-12 p-6 text-center text-xs border-b border-t border-dark-05 text-dark-75">
+      Thank you for reading, this <a href="/notes">notes</a> may contain grammar errors, or are
+      written in
       <b>Spanish :)</b>
     </div>
-    <footer class="flex mt-3 mb-6 space-x-2 items-center">
+    <footer class="flex mb-6 space-x-2 items-center">
       <a
         title="Read more notes"
         href="/notes"
