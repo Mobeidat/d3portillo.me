@@ -27,6 +27,8 @@ exports.handler = (event, context, callback) => {
             .then((r) => r.text())
             .then((template) => {
               const $ = cheerio.load(template.replace("[CONTENT]", noteHTML))
+              const customCover = $(".note-container [alt='cover']").attr("src")
+              const cover = customCover || "https://d3portillo.me/seo_note.png"
               $("script[src]").remove()
               const h1 = $("h1")
                 .first()
@@ -43,7 +45,7 @@ exports.handler = (event, context, callback) => {
                 <meta property="twitter:url" content="${BASE_URL}}/${slug}">
                 <meta property="twitter:title" content="${h1}">
                 <meta property="twitter:description" content="${p}">
-                <meta property="twitter:image" content="https://d3portillo.me/seo_note.png">
+                <meta property="twitter:image" content="${cover}">
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8QQX5X7WG"></script>
                 `)
               $("pre code").each((_, e) => {
