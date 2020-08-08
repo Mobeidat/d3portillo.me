@@ -1,23 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
-  <channel>
-    <title>D3Portillo / Notes</title>
-    <link>https://d3portillo.me/notes</link>
-    <description>
-    Lo que postearé puede tener errores ortograficos.
-    Aveces puede ser contenido en inglés o español. Si no estás de acuerdo con el término, disculpas.
-    </description>
-    <item>
-      <title>Sube tu website a la web con estos 5 sencillos pasos</title>
-      <link>https://d3portillo.me/notes/sube-tu-website-a-la-www-con-5-sencillos-pasos</link>
-      <description>En esta ocación aprenderemos cómo subir un website a Netlify</description>
-      <guid>sube-tu-website-a-la-www-con-5-sencillos-pasos</guid>
-      <image>
-        <url>https://d3portillo.me/seo_notes.png</url>
-        <title>W3Schools.com</title>
-        <link>https://d3portillo.me</link>
-      </image>
-    </item>
-  </channel>
-
-</rss>
+<?xml version="1.0" encoding="UTF-8" ?><rss version="2.0"><channel><title>D3Portillo / Notes</title><link>https://d3portillo.me/notes</link><description>Lo que postearé puede tener errores ortograficos. Aveces puede ser contenido en inglés o español. Si no estás de acuerdo con el término, disculpas.</description><item><title> Saber JS, Simplemente ¡Wow!</title><link>https://d3portillo.me/notes/saber-simplemente-wow
+</link><description>En esta ocación quiero hablar un poco sobre un generador de sitios estatícos súper genial y liviano...</description><guid>saber-simplemente-wow
+</guid></item><item><title> Sube tu website a la web con estos 5 sencillos pasos</title><link>https://d3portillo.me/notes/sube-tu-website-a-la-www-con-5-sencillos-pasos
+</link><description>En esta ocación aprenderemos cómo subir un website a Netlify</description><guid>sube-tu-website-a-la-www-con-5-sencillos-pasos
+</guid></item><item><title> 9 Plugins para VSCode que debes tener</title><link>https://d3portillo.me/notes/9-plugins-para-vs-code-que-debes-tener
+</link><description>¿Qué plugins para Visual Studio Code puede usar para aumentar mi productividad?</description><guid>9-plugins-para-vs-code-que-debes-tener
+</guid></item><item><title> D3: The basics 👾</title><link>https://d3portillo.me/notes/d3-101
+</link><description>Apuesto que en más de una ocación intentaste crear gráficas hermosas con Javascript.</description><guid>d3-101
+</guid></item><item><title> Lista de comunidades "dev" en Discord que deberías seguir</title><link>https://d3portillo.me/notes/comunidades-en-discord-que-debes-seguir
+</link><description>Una lista de servers de discord para code lovers e interesados por conocimiento colectivo : )</description><guid>comunidades-en-discord-que-debes-seguir
+</guid></item><item><title> ¿ Cómo hacer una api para tomar captura a un website ?</title><link>https://d3portillo.me/notes/puppeteer-vercel-serverless-functions-para-tomar-capturas-a-tu-website
+</link><description>Puppeteer es una herramienta para controlar un headless Chrome, esto más las preciosas serverless functions de Vercel, uffa que sí!.</description><guid>puppeteer-vercel-serverless-functions-para-tomar-capturas-a-tu-website
+</guid></item></channel></rss>

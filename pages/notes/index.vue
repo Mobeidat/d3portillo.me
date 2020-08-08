@@ -23,7 +23,7 @@
         :title="`Click to continue reading: ${item.title}`"
         class="border-b border-dark-15 block pb-4 note mt-4"
         no-link
-        :href="`https://d3portillo.me/notes/${item.slug}`"
+        :href="item.link"
         v-for="item in entries"
         :key="item.title"
       >
@@ -63,22 +63,20 @@ export default {
     }
   },
   mounted() {
-    const baseURL = `https://raw.githubusercontent.com/wiki/D3Portillo/d3portillo.me`
-    fetch(baseURL + "/Home.md")
+    const feed = `https://d3portillo.github.io/d3portillo.me/static/feed.xml`
+    fetch(feed)
       .then((r) => r.text())
-      .then((text) => {
-        text.match(/(- ).+\n/g).forEach((item) => {
-          const slug = item.split("/").pop()
-          const itemURL = `${baseURL}/${slug.trim()}.md`
-          fetch(itemURL)
-            .then((r) => r.text())
-            .then((content) => {
-              const [title, resume] = content.split("\n\n")
-              this.entries = [
+      .then((str) => new DOMParser().parseFromString(str, "text/xml"))
+      .then((html) => {
+        html.querySelectorAll("item").forEach(item=>{
+          const title = item.querySelector("title").innerHTML
+          const resume = item.querySelector("description").innerHTML
+          const link = item.querySelector("link").innerHTML
+
+          this.entries = [
                 ...this.entries,
-                { title: title.replace("#", ""), resume, slug },
+                { title, resume, link },
               ]
-            })
         })
       })
   },
