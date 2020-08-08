@@ -40,6 +40,7 @@ exports.handler = (event, context, callback) => {
                 .append(`<title>Note | ${h1}</title>`)
                 .append(`<meta name="description" content="${p}">`)
                 .append(`<meta name="author" content="D3Portillo">`)
+                .append(`<meta name="og:image" content="${cover}">`)
                 .append(`<meta property="twitter:card" content="summary">
                 <meta property="twitter:site" content="@d3portillo">
                 <meta property="twitter:url" content="${BASE_URL}/${slug}">

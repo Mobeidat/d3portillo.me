@@ -3,6 +3,7 @@ yarn.*
 dist
 public
 .cache
-*.log
+**.log
 .env
 .saber
+.vercel

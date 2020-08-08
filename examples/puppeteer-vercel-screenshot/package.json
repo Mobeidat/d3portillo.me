@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "setup": "vercel",
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "chrome-aws-lambda": "^5.2.0",
+    "puppeteer-core": "4.0.1"
+  },
+  "devDependencies": {
+    "puppeteer": "^5.2.1"
+  }
+}
