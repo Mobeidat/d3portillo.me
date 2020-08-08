@@ -1,5 +1,7 @@
 const fetch = require("node-fetch")
+const fs = require("fs")
 const baseURL = `https://raw.githubusercontent.com/wiki/D3Portillo/d3portillo.me`
+const FEED_PATH = `./feed.xml`
 const settings = {
   name: "D3Portillo / Notes",
   link: "https://d3portillo.me/notes",
@@ -23,6 +25,7 @@ fetch(baseURL + "/Home.md")
         })
       })
     ).then((entries) => {
+      const currentFeed = fs.readFileSync(FEED_PATH, "utf-8")
       const items = entries
         .map(({ title, slug, resume }) => {
           const url = `https://d3portillo.me/notes/${slug}`
@@ -30,6 +33,10 @@ fetch(baseURL + "/Home.md")
         })
         .join("")
       const data = `<?xml version="1.0" encoding="UTF-8" ?><rss version="2.0"><channel><title>${settings.name}</title><link>${settings.link}</link><description>${settings.description}</description>${items}</channel></rss>`
-      require("fs").writeFileSync("./feed.xml", data)
+      if (currentFeed.includes(data)) {
+        console.log("Nothing new to include")
+      } else {
+        fs.writeFileSync(FEED_PATH, data)
+      }
     })
   })
