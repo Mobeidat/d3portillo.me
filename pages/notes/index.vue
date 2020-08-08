@@ -63,20 +63,16 @@ export default {
     }
   },
   mounted() {
-    const feed = `https://d3portillo.github.io/d3portillo.me/static/feed.xml`
+    const feed = `https://d3portillo.github.io/d3portillo.me/feed.xml`
     fetch(feed)
       .then((r) => r.text())
       .then((str) => new DOMParser().parseFromString(str, "text/xml"))
       .then((html) => {
-        html.querySelectorAll("item").forEach(item=>{
+        html.querySelectorAll("item").forEach((item) => {
           const title = item.querySelector("title").innerHTML
           const resume = item.querySelector("description").innerHTML
           const link = item.querySelector("link").innerHTML
-
-          this.entries = [
-                ...this.entries,
-                { title, resume, link },
-              ]
+          this.entries = [...this.entries, { title, resume, link }]
         })
       })
   },

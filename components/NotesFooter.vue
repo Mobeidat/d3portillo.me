@@ -1,8 +1,10 @@
 <template>
   <div class="w-full">
-    <div class="mt-32 mb-12 p-6 text-center text-xs border-b border-t border-dark-05 text-dark-75">
-      Thank you for reading, this <a href="/notes">notes</a> may contain grammar errors, or are
-      written in
+    <div
+      class="mt-32 mb-12 p-6 text-center text-xs border-b border-t border-dark-05 text-dark-75"
+    >
+      Thank you for reading, this <a href="/notes">notes</a> may contain grammar
+      errors, or are written in
       <b>Spanish :)</b>
     </div>
     <footer class="flex mb-6 space-x-2 items-center">
@@ -16,12 +18,12 @@
       </a>
       <div class="text-2xl font-bold">/</div>
       <a
-        title="My website"
-        href="/"
+        title="RSS Feed"
+        href="https://d3portillo.github.io/d3portillo.me/feed.xml"
         no-link
         class="text-sm font-bold hover:underline"
       >
-        Denny
+        RSS
       </a>
       <div class="text-2xl font-bold">/</div>
       <a
