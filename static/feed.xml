@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
-
   <channel>
     <title>D3Portillo / Notes</title>
     <link>https://d3portillo.me/notes</link>
@@ -12,6 +11,7 @@
       <title>Sube tu website a la web con estos 5 sencillos pasos</title>
       <link>https://d3portillo.me/notes/sube-tu-website-a-la-www-con-5-sencillos-pasos</link>
       <description>En esta ocación aprenderemos cómo subir un website a Netlify</description>
+      <guid>sube-tu-website-a-la-www-con-5-sencillos-pasos</guid>
     </item>
   </channel>
 
