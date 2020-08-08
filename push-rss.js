@@ -30,6 +30,6 @@ fetch(baseURL + "/Home.md")
         })
         .join("")
       const data = `<?xml version="1.0" encoding="UTF-8" ?><rss version="2.0"><channel><title>${settings.name}</title><link>${settings.link}</link><description>${settings.description}</description>${items}</channel></rss>`
-      require("fs").writeFileSync("./static/feed.xml", data)
+      require("fs").writeFileSync("./feed.xml", data)
     })
   })
