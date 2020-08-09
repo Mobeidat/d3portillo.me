@@ -276,6 +276,9 @@ html {
   hr {
     @apply my-10;
   }
+  a {
+    background: rgba(224, 213, 1, 0.188);
+  }
 }
 
 .note:hover {
